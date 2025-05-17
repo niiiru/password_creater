@@ -2,12 +2,14 @@ function PasswordsList() {
   return (
     <div>
       <table>
-        <tr>
-          <th>Website</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>Note</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Note</th>
+          </tr>
+        </thead>
       </table>
     </div>
   );
