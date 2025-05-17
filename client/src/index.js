@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Login from "./pages/Login"; // removed 12 errors but have no clue why, error was at export login line
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

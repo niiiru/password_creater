@@ -1,9 +1,9 @@
-import React from "react";
 import { useState } from "react";
 
-function Login() {
+function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <div>
       <form>
@@ -11,6 +11,7 @@ function Login() {
           <label>Username</label>
           <input
             type="text"
+            required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></input>
@@ -19,15 +20,15 @@ function Login() {
           <label>Password</label>
           <input
             type="password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-
-        <button type="onclick">Login</button>
+        <button>Register</button>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Register;
