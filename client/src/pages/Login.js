@@ -11,6 +11,7 @@ function Login() {
           <label>Username</label>
           <input
             type="text"
+            required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></input>
@@ -19,6 +20,7 @@ function Login() {
           <label>Password</label>
           <input
             type="password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>

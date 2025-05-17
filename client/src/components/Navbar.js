@@ -9,6 +9,9 @@ export function MyAppNav() {
       <NavLink to="/login" end>
         Login
       </NavLink>
+      <NavLink to="/register" end>
+        Register
+      </NavLink>
     </nav>
   );
 }
