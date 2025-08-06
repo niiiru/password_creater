@@ -13,7 +13,11 @@ function Login() {
         email: emailInputRef.current.value,
         password: passwordInputRef.current.value,
       })
-      .then(() => alert("Logged in"))
+      .then((response) => {
+        const token = response.data.token;
+        localStorage.setItem("tokenAuth", token);
+        alert("Logged in");
+      })
       .catch(({ response }) => {
         alert(response.data.message);
       });
