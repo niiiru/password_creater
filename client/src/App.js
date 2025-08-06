@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 
 import Layout from "./components/Layout";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<PrivateRoute element={Home} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />}></Route>
         </Routes>
