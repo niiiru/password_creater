@@ -1,25 +1,31 @@
 import axios from "axios";
-import React from "react";
 import { useRef } from "react";
 import { TextField, Button, Box } from "@mui/material";
+import { useAuth } from "../contexts/AuthContext";
 
 function Login() {
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
-  function login(e) {
+  const { login } = useAuth();
+
+  function handleLogin(e) {
     e.preventDefault();
     axios
       .post("http://localhost:5001/api/v1/auth/login", {
         email: emailInputRef.current.value,
         password: passwordInputRef.current.value,
       })
-      .then(() => alert("Logged in"))
+      .then((res) => {
+        login(res.data.token); // сохраняем токен
+        alert("Logged in");
+      })
       .catch(({ response }) => {
         alert(response.data.message);
       });
   }
+
   return (
-    <form onSubmit={login}>
+    <form onSubmit={handleLogin}>
       <Box
         sx={{
           maxWidth: 300,
@@ -33,14 +39,12 @@ function Login() {
         <TextField
           label="Email"
           type="email"
-          fullWidth
           inputRef={emailInputRef}
           required
         />
         <TextField
           label="Пароль"
           type="password"
-          fullWidth
           inputRef={passwordInputRef}
           required
         />
