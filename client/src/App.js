@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import Layout from "./components/Layout";
 import PrivateRoute from "./components/PrivateRoute";
@@ -10,13 +11,15 @@ import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<PrivateRoute element={Home} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />}></Route>
-        </Routes>
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<PrivateRoute element={Home} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />}></Route>
+          </Routes>
+        </Layout>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
